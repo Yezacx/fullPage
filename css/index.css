@@ -1,0 +1,346 @@
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    /*动画 测试*/
+    /*h3 {
+        width: 200px;
+        height: 100px;
+        background-color: red;
+        !*过渡*!
+        transition: all 1s;
+        transform: translateX(-1000px);
+    }
+    .section.current h3 {
+        transform: translateX(500px) translateY(400px);
+    }*/
+
+    .section {
+        /*第三屏小火箭的父盒子相对定位*/
+        position: relative;
+        /*避免小火箭定位超出时在下一个盒子内显示*/
+        overflow: hidden;
+    }
+    /*第一屏*/
+    .first {
+        padding-top: 80px;
+        text-align: center;
+    }
+    .first .logo {
+        /*width: 251px;*//*不给宽背景定位可以用center居中,给了宽的话用margin*/
+        height: 186px;
+        background: url(../images/logo.png) no-repeat center center;
+        /*margin: 0 auto;*/
+    }
+    .first .text {
+        margin: 85px auto 43px;
+    }
+    .first .text img {
+        margin: 0 25px;
+        opacity: 0;
+
+    }
+    /*第一屏的动画*/
+    .first.current img {
+        margin: 0 0;
+        opacity: 1;
+        /*过渡 入场需要过渡，出场快速，不需要过渡*/
+        transition: all 1s;
+    }
+    .first .info {
+        height: 49px;
+        background: url(../images/info_1.png) no-repeat center center;
+    }
+    /*第二屏*/
+    /*每个section的高度都是一整个屏幕*/
+    .second {
+        padding: 0 100px;
+        border: 1px solid #000;
+    }
+    /*与正常不同，伸缩盒子加给section下面的div*/
+    .second>div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .second .shield {
+        width: 429px;
+        height: 489px;
+    }
+    .second .info {
+        width: 635px;
+        height: 309px;
+        background: url(../images/info_2.png) no-repeat;
+    }
+    .second img:nth-child(1) {
+        transform: translate(35px, 78px) rotate(45deg);
+    }
+
+    .second img:nth-child(2) {
+        transform: translate(135px, 282px) rotate(15deg);
+    }
+
+    .second img:nth-child(3) {
+        transform: translate(187px, 62px) rotate(15deg);
+    }
+
+    .second img:nth-child(4) {
+        transform: translate(10px, 100px) rotate(30deg);
+    }
+
+    .second img:nth-child(5) {
+        transform: translate(465px, 122px) rotate(30deg);
+    }
+
+    .second img:nth-child(6) {
+        transform: translate(480px, 62px) rotate(90deg);
+    }
+
+    .second img:nth-child(7) {
+        transform: translate(180px, -305px) rotate(80deg);
+    }
+
+    .second img:nth-child(8) {
+        transform: translate(300px, -22px) rotate(70deg);
+    }
+
+    .second img:nth-child(9) {
+        transform: translate(280px, -322px) rotate(60deg);
+    }
+    /*第二屏动画*/
+    .second.current img {
+        /*过渡*/
+        transition: all 0.8s;
+        transform: translate(0px) rotate(0deg)
+    }
+    /*第三屏*/
+    .third {
+        padding: 0 60px;
+    }
+    .third div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .third .info {
+        width: 631px;
+        height: 278px;
+        background: url(../images/info_3.png) no-repeat;
+    }
+    .third .circle {
+        width: 453px;
+        height: 449px;
+        background: url(../images/circle.png) no-repeat;
+    }
+    .third .rocket {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 203px;
+        height: 204px;
+        background: url(../images/rocket.png) no-repeat;
+        transform: translate(400px,400px);
+    }
+    /*第三屏动画*/
+    .third.current .rocket {
+        /*过渡*/
+        transition: all 0.7s;
+        transform: translate(959px,-260px);
+    }
+    /*第四屏*/
+    .fourth {
+        padding: 0 85px;
+    }
+    .fourth > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+    }
+    .fourth .search {
+        width: 529px;
+        height: 320px;
+        position: relative;
+        transform: translateX(-100%);
+    }
+    .fourth .input {
+        width: 529px;
+        height: 66px;
+        background: url(../images/search.png);
+    }
+    .fourth .key {
+        position: absolute;
+        left: 20px;
+        top: 24px;
+        width: 0;
+        /*width: 100px;*/
+        height: 22px;
+        background: url(../images/key.png) left center no-repeat;
+    }
+    .fourth .wrap {
+        width: 529px;
+        height: 393px;
+        transform: translateY(-13px);
+        overflow: hidden;
+    }
+    .fourth .result {
+        width: 100%;
+        height: 100%;
+        background: url(../images/result.png) no-repeat;
+        transform: translateY(-100%);
+    }
+    .fourth .info {
+        width: 612px;
+        height: 299px;
+        background: url(../images/info_4.png);
+    }
+    /*第四屏动画*/
+    .fourth.current .search {
+        /*过渡*/
+        transition: all 1s;
+        transform: translateX(0px);
+    }
+    .fourth.current .key {
+        /*过渡*/
+        animation: typing 1s steps(5) 1s forwards;
+    }
+    .fourth.current .result {
+        /*过渡*/
+        transition: all 1s 3s;
+        transform: translateY(0px);
+    }
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 100px;
+        }
+    }
+    /*第五屏*/
+    .fifth {
+        /*padding-top: 30px;*/
+    }
+    .fifth > div {
+        display: flex;
+        flex-direction: column;
+    }
+    .fifth .info {
+        height: 135px;
+        margin: 30px 0;
+        background: url(../images/info_5.png) center center no-repeat;
+    }
+    .fifth .broswer {
+        width: 1004px;
+        margin: 0 auto;
+        flex: 1;
+        background-color: rgba(255, 255, 255, 0.15);
+        position: relative;
+    }
+
+    .fifth .toolbar {
+        height: 80px;
+        background: url(../images/toolbar.png) left bottom no-repeat;
+        position: relative;
+        opacity: 0;
+    }
+
+    .leftline, .topline, .rightline, .bottomline {
+        position: absolute;
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .leftline {
+        left: 0;
+        height: 100%;
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    .topline {
+        top: 0;
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    .rightline {
+        right: 0;
+        height: 100%;
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    .bottomline {
+        bottom: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .fifth .box {
+        position: absolute;
+        left: 70px;
+        top: 32px;
+        width: 0;
+        /*width: 920px;*/
+        height: 27px;
+        overflow: hidden;
+    }
+
+    .fifth .box span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    .fifth .extra {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 394px;
+        height: 29px;
+        background: url(../images/extra.png);
+        opacity: 0;
+    }
+
+    .fifth .line {
+        width: 100%;
+        position: absolute;
+        bottom: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    /*第五屏动画*/
+    .current.fifth .leftline {
+        transition: all 1s ease-in-out;
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .current.fifth .topline {
+        transition: all 1s 0.5s ease-in-out;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .current.fifth .rightline {
+        transition: all 1s 0.5s ease-in-out;
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .current.fifth .toolbar {
+        transition: all 2s 1.5s ease-in-out;
+        opacity: 1;
+    }
+    .current.fifth .box {
+        transition: all 1s 1.5s ease-in-out;
+        width: 920px;
+    }
+    .current.fifth .extra {
+        transition: all 1s 1.5s ease-in-out;
+        opacity: 1;
+    }
